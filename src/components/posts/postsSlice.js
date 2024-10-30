@@ -26,7 +26,7 @@ const postsSlice = createSlice({
 })
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await fetch('https://www.reddit.com/r/redditdev.json')
+    const response = await fetch('https://www.reddit.com/r/redditdev.json',{method: 'GET'})
     const data = await response.json()
     return data.data.children.map((post) => post.data)
 })
